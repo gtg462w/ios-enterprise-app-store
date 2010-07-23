@@ -10,4 +10,12 @@ Run the following to
 # Create directory /public/apps/APPNAME
 # Create /public/apps/APPNAME/manifest.json
 # Put APPNAME.ipa in /public/apps/APPNAME
-# visit root of web app and app will be listed	
+# visit root of web app and app will be listed
+
+h1. To Run Web App
+
+ruby app.rb
+
+h1. Dependencies
+
+sinatra, json
