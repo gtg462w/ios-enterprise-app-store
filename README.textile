@@ -7,7 +7,7 @@ Run the following to
 # Select the distribution profile
 # Click the "Distribute for Enterprise ..." button
 # Type in any URL, Title, & Subtitle (these will be automatically generate by the web app)
-# Create directory /public/apps/<AppName>
-# Create /public/apps/<AppName>/manifest.json
-# Put <AppName>.ipa in /public/apps/<AppName>
+# Create directory /public/apps/APPNAME
+# Create /public/apps/APPNAME/manifest.json
+# Put APPNAME.ipa in /public/apps/APPNAME
 # visit root of web app and app will be listed	
