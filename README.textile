@@ -1,0 +1,13 @@
+h1. Steps to Add Application
+
+Run the following to 
+
+# Xcode -> Build -> Build and Archive
+# Click the "Share Application ..." button
+# Select the distribution profile
+# Click the "Distribute for Enterprise ..." button
+# Type in any URL, Title, & Subtitle (these will be automatically generate by the web app)
+# Create directory /public/apps/<AppName>
+# Create /public/apps/<AppName>/manifest.json
+# Put <AppName>.ipa in /public/apps/<AppName>
+# visit root of web app and app will be listed	
