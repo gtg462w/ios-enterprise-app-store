@@ -1,3 +1,7 @@
+h1. Description
+
+An iOS *enterprise* app store web application.  You drop your application packaged as an .ipa in a directory, add some metadata in a json file, and your application will be available for download.
+
 h1. Steps to Add Application
 
 Run the following to 
