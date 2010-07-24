@@ -9,13 +9,12 @@ end
 
 def get_app_manifest_by_name(name)
   config = get_config
-  pp config
   default_app_manifest = config['app_manifest_defaults']
   mf = {
-      :name => name
+      'name' => name
   }
-  mf = mf.merge( JSON.parse( File.open("public/apps/#{name}/manifest.json").read ) )
-  OpenStruct.new( mf.merge!(default_app_manifest) )
+  mf.merge!( JSON.parse( File.open("public/apps/#{name}/manifest.json").read ) )
+  mf.merge!(default_app_manifest)
 end
 
 def get_app_manifests

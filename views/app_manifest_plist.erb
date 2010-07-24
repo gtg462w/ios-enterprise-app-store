@@ -11,17 +11,17 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string><%= @mf.asset_url_prefix %>/apps/<%= @mf.name %>/<%= @mf.name %>.ipa</string>
+					<string><%= base_url %>/apps/<%= @mf['name'] %>/<%= @mf['name'] %>.ipa</string>
 				</dict>
 			</array>
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string><%= @mf.base_bundle_domain %>.<%= @mf.name %></string>
+				<string><%= @mf['base_bundle_domain'] %>.<%= @mf['name'] %></string>
 				<key>bundle-version</key>
-				<string><%= @mf.bundle_version %></string>
+				<string><%= @mf['bundle_version'] %></string>
 				<key>kind</key>
-				<string><%= @mf.kind %></string>
+				<string><%= @mf['kind'] %></string>
 				<key>title</key>
 				<string>MerckTestApp01</string>
 			</dict>

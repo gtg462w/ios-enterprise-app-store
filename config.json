@@ -1,6 +1,5 @@
 {
     "app_manifest_defaults": {
-        "asset_url_prefix": "http://54.13.89.60:4567",
         "base_bundle_domain": "com.merck",
         "bundle_version": "1.0",
         "kind": "software"        

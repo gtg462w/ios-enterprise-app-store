@@ -2,33 +2,48 @@ require 'rubygems'
 require 'pp'
 require 'json'
 require 'ostruct'
-require 'sinatra'
-
+require 'sinatra/base'
+require 'plist'
 require 'lib'
 
-#use Rack::Auth::Basic do |username, password|
-#    username == 'admin' && password == 'secret'
-#end
+class MyApp < Sinatra::Base
 
-#mime_type :ipa, 'application/octet-stream'
-#mime_type :plist, 'application/octet-stream'
+  set :public, './public'
 
-configure do
-end
+  configure do
+  end
 
-before do
-end
+  before do
+  end
 
-helpers do
-end
+  helpers do
 
-get '/' do
+    def base_url
+      "#{env['rack.url_scheme']}://#{env['SERVER_NAME']}:#{env['SERVER_PORT']}"
+    end
+
+  end
+
+  get '/' do
     @mfs = get_app_manifests
     erb :index
-end
+  end
+    
+  get '/index.plist' do
+    @mfs = get_app_manifests
 
-get '/mf/:name.plist' do
-    #content_type 'text/xml', :charset => 'utf-8'
+    content_type 'text/xml', :charset => 'utf-8'
+    @mfs.to_plist
+  end
+
+  get '/mf/:name.plist' do
+    content_type 'text/xml', :charset => 'utf-8'
     @mf = get_app_manifest_by_name(params[:name])
     erb :app_manifest_plist
+  end
+    
+end
+
+if __FILE__ == $0
+  MyApp.run!
 end

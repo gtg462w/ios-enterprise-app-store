@@ -4,8 +4,6 @@ An iOS *enterprise* app store web application.  You drop your application packag
 
 h1. Steps to Add Application
 
-Run the following to 
-
 # Xcode -> Build -> Build and Archive
 # Click the "Share Application ..." button
 # Select the distribution profile
@@ -18,8 +16,16 @@ Run the following to
 
 h1. To Run Web App
 
-ruby app.rb
+ ruby app.rb
+
+or
+
+ rackup config.ru
+
+or
+
+ thin -R config.ru start
 
 h1. Dependencies
 
-sinatra, json
+ gem install sinatra json

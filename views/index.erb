@@ -1,7 +1,7 @@
 <html>
 	<body>
 		<% @mfs.each do |mf| %>
-		<div><a href="itms-services://?action=download-manifest&url=<%= mf.asset_url_prefix %>/mf/<%= mf.name %>.plist"><%= mf.display_name %></a></div>
+		<div><a href="itms-services://?action=download-manifest&url=<%= base_url %>/mf/<%= mf['name'] %>.plist"><%= mf['display_name'] %></a></div>
 		<% end %>
 	</body>
 <html>
