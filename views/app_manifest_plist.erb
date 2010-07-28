@@ -13,6 +13,26 @@
 					<key>url</key>
 					<string><%= base_url %>/apps/<%= @mf['name'] %>/<%= @mf['name'] %>.ipa</string>
 				</dict>
+				<!-- display-image: the icon to display during download .-->
+				<dict>
+					<key>kind</key>
+					<string>display-image</string>
+					<!-- optional. indicates if icon needs shine effect applied. -->
+					<key>needs-shine</key>
+					<true/>
+					<key>url</key>
+					<string><%= base_url %>/apps/<%= @mf['name'] %>/display-image-57x57.png</string>
+				</dict> 
+				
+				<!-- full-size-image: the large 512x512 icon used by iTunes. -->
+				<dict>
+					<key>kind</key>
+					<string>full-size-image</string> <!-- optional. one md5 hash for the entire file. --> 
+					<key>needs-shine</key>
+					<true/>
+					<key>url</key>
+					<string><%= base_url %>/apps/<%= @mf['name'] %>/full-size-image-512x512.png</string>
+				</dict>				
 			</array>
 			<key>metadata</key>
 			<dict>

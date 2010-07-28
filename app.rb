@@ -6,20 +6,29 @@ require 'sinatra/base'
 require 'plist'
 require 'lib'
 
+class Sinatra::Reloader < Rack::Reloader
+  def safe_load(file, mtime, stderr = $stderr)
+    ::Sinatra::Application.reset!
+    super
+  end
+end
+
 class MyApp < Sinatra::Base
 
   set :public, './public'
 
-  configure do
+  configure :development do
+      use Sinatra::Reloader
+      use Sinatra::ShowExceptions
   end
-
+  
   before do
   end
 
   helpers do
 
     def base_url
-      "#{env['rack.url_scheme']}://#{env['SERVER_NAME']}:#{env['SERVER_PORT']}"
+      "#{env['rack.url_scheme']}://#{request.host_with_port}"
     end
 
   end
@@ -40,6 +49,13 @@ class MyApp < Sinatra::Base
     content_type 'text/xml', :charset => 'utf-8'
     @mf = get_app_manifest_by_name(params[:name])
     erb :app_manifest_plist
+  end
+  
+  get '/admin' do
+  end
+  
+  get '/debug' do
+    "#{request.host_with_port}"
   end
     
 end
