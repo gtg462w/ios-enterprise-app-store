@@ -1,7 +1,38 @@
 <html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no" />		
+		<style type="text/css" media="screen">
+		html, body {
+			margin: 0px;
+		}
+
+		#content {
+			margin: 0px;
+		}
+
+		a {
+			font-size: 24px;
+			text-decoration: none;
+		}
+		
+		.row {
+			padding-bottom: 10px;
+			padding-left: 10px;
+		}
+		
+		h1 {
+			font-size: 36px;
+		}
+		</style>		
+	</head>
 	<body>
-		<% @mfs.each do |mf| %>
-		<div><a href="itms-services://?action=download-manifest&url=<%= base_url %>/mf/<%= mf['name'] %>.plist"><%= mf['display_name'] %></a></div>
-		<% end %>
+		<div id="content">
+			<div id="header">
+				<h1>Merck App Store</h1>
+			</div>
+			<% @mfs.each do |mf| %>
+			<div class="row"><a href="itms-services://?action=download-manifest&url=<%= base_url %>/mf/<%= mf['name'] %>.plist"><%= mf['display_name'] %></a></div>
+			<% end %>			
+		</div>
 	</body>
 <html>

@@ -3,5 +3,20 @@
         "base_bundle_domain": "com.merck",
         "bundle_version": "1.0",
         "kind": "software"        
-    }
+    },
+    
+    "access_list":[
+        {
+            "username": "pfeilbr",
+            "permissions": []
+        },
+        {
+            "username": "millheif",
+            "permissions": []
+        },
+        {
+            "username": "bracekev",
+            "permissions": []
+        }        
+    ]
 }
