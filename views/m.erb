@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+		<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>		
+		<style type="text/css" media="screen">
+			.app-footer {
+				font-size: x-small;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<% @mfs.each do |mf| %>
+			<div class="row"><a href="itms-services://?action=download-manifest&url=<%= base_url %>/mf/<%= mf['name'] %>.plist"><%= mf['display_name'] %></a></div>
+			<% end %>
+			
+			<div data-role="page"> 
+				<div data-role="header"><h1>App Store</h1></div> 
+				<div data-role="content">
+					<ul data-role="listview" data-filter="true">
+						<% @mfs.each do |mf| %>
+						<li>
+							<img src="<%= base_url %>/apps/<%= mf['name'] %>/display-image-57x57.png"></img>
+							<a href="<%= mf['name'] %>">
+								<h3><%= mf['display_name'] %></h3>
+							</a>
+						</li>
+						<% end %>						
+					</ul>
+				</div> 
+				<div data-role="footer">
+					<div class="app-footer">Brian Pfeil</div>
+				</div> 
+			</div> 
+			
+			<!-- App detail pages -->
+			<% @mfs.each do |mf| %>
+			<div data-role="page" id="<%= mf['name'] %>"> 
+				<div data-role="header"><h1><%= mf['name'] %></h1></div> 
+				<div data-role="content">
+					<img src="<%= base_url %>/apps/<%= mf['name'] %>/display-image-57x57.png"></img>
+					<h3><%= mf['display_name'] %></h3>
+					<a href="itms-services://?action=download-manifest&url=<%= base_url %>/mf/<%= mf['name'] %>.plist" rel="external" data-ajax="false">
+						install
+					</a>
+				</div>
+			</div> 
+			<% end %>
+
+		</div>
+	</body>
+</html>

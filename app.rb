@@ -16,6 +16,8 @@ end
 class MyApp < Sinatra::Base
 
   set :public, './public'
+  
+  mime_type :ipa, 'application/octet-stream'
 
 
   # use Rack::Auth::Basic do |username, password|
@@ -68,6 +70,12 @@ class MyApp < Sinatra::Base
     @mfs = get_app_manifests
     erb :index
   end
+
+  get '/m' do
+    @mfs = get_app_manifests
+    erb :m
+  end
+
     
   get '/index.plist' do
     @mfs = get_app_manifests
